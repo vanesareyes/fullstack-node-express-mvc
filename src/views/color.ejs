@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color" : <%=c olor %>>
+    <form action="/users/login" method="post">
+        <% if (typeof errors !== 'undefined') {
+            errors.map(function(error) { %>
+            <p>
+                <%= error.msg %>
+            </p>
+            <% })
+            }%>
+                <div class="form-group">
+                    <label for="">¿Que color te gusta?</label>
+                    <select name="color" id="color">
+                <option selected value="0"> Elige un color </option>
+                <option value="1">Azul</option> 
+                <option value="2">Amarillo</option> 
+                <option value="3">Rojo</option>
+                <option value="10">Verde</option> 
+            </select>
+                </div>
+                <div class="form-group">
+                    <label for="">¿Deseas recordar el color elegido?</label>
+                    <input type="radio" name="recordar" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Enviar</button>
+                </div>
+                <div class="form-group">
+                    <a href="/login">Olvidar el color que te gusta</a>
+                    <a href="/login">Ver el color que te gusta</a>
+                </div>
+
+    </form>
+</body>

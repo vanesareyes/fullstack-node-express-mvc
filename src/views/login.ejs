@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <form action ="/users/login" method ="post">
-            <% if (typeof errors !== 'undefined') {
+
+<body>
+    <form action="/users/login" method="post">
+        <% if (typeof errors !== 'undefined') {
             errors.map(function(error) { %>
-            <p><%= error.msg %></p>
+            <p>
+                <%= error.msg %>
+            </p>
             <% })
             }%>
-        <div class ="form-group">
-            <label for ="">Ingrese su email</label>
-            <input type="text" name="email" class="form-control" value="<%= typeof data != 'undefined' ? data.email : '' %>">   
-            <p></p>
-        </div>
-        <div class ="form-group">
-                <label for ="">Ingrese su clave</label>
-                <input type="password" name="password" class="form-control" value="<%= typeof data != 'undefined' ? data.password : '' %>">
-        </div>
-        <div class ="form-group">
-            <button class="btn btn-primary">Enviar</button>
-        </div>
 
-        </form>
-    </body>
+                <div class="form-group">
+                    <label for="">Ingrese su email</label>
+                    <input type="text" name="email" class="form-control" value="<%= typeof data != 'undefined' ? data.email : '' %>">
+                </div>
+                <div class="form-group">
+                    <label for="">Ingrese su clave</label>
+                    <input type="password" name="password" class="form-control" value="<%= typeof data != 'undefined' ? data.password : '' %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Enviar</button>
+                </div>
+
+    </form>
+</body>

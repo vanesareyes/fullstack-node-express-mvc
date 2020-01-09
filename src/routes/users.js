@@ -48,14 +48,27 @@ router.post('/login', userValidation, function(req, res) {
                 data: req.body
             }) //envio la informacion que ya existia, ej email
     }
-    // Aca guardamos los datos enviados por el formulario
-    //console.log(req.body,errors)   //dentro de req en body esta toda la informacion recibida por post
-    //res.end('recibido!')
+    // Guardar en sesion
+    req.session.user = {
+        id: 1,
+        email: 'john@doe.com',
+    }
+
     res.redirect(301, '/users/welcome')
 })
 
 router.get('/welcome', function(req, res) {
-    res.end('bienvenido')
+    res.end('bienvenido ' + req.session.user.email + '!')
+})
+
+router.get('/color', function(req, res) {
+    res.render('color')
+})
+
+router.post('/color', function(req, res) {
+    let color = req.session.color
+    res.render('color')
+
 })
 
 module.exports = router
